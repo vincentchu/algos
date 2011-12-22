@@ -67,6 +67,14 @@ class Heap
     @array = []
   end
 
+  def length
+    @array.length
+  end
+
+  def to_a
+    @array
+  end
+
   def max
     @array[0]
   end
@@ -147,17 +155,17 @@ class Heap
 end
 
 
-# Create an array of integers 1-10, randomly shuffled
-vals = (1..10).to_a.sort_by { rand }
-# => [7, 4, 2, 1, 3, 8, 6, 5, 9, 10]
+# # Create an array of integers 1-10, randomly shuffled
+# vals = (1..10).to_a.sort_by { rand }
+# # => [7, 4, 2, 1, 3, 8, 6, 5, 9, 10]
 
-# Push these values onto a heap
-h = Heap.new
-vals.each {|v| h.push!(v) }
+# # Push these values onto a heap
+# h = Heap.new
+# vals.each {|v| h.push!(v) }
 
-# Pop them off in successing. This should pop them off in reverse-order
-puts 10.times.collect { h.pop! }.inspect
-# => [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+# # Pop them off in successing. This should pop them off in reverse-order
+# puts 10.times.collect { h.pop! }.inspect
+# # => [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
 
 
