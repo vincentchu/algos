@@ -1,10 +1,10 @@
 # LinkedList
 #
 # This is a Ruby implementation of a double-linked list. The class
-# LinkedList::Node represents a node of the linked list; its instance variables
-# @next and @prev hold data 
-
-
+# LinkedList::Node represents a node of the linked list; its instance
+# variables @next and @prev hold references to the next and previous node.
+# The class LinkedList wraps the entire class and provides instance
+# methods for push/pop, unshift/shift, and iterating over each node
 class LinkedList
 
   attr_reader :head, :tail
@@ -75,16 +75,3 @@ class LinkedList
     end
   end
 end
-
-
-list = LinkedList.new(0)
-list.push(1)
-
-list.each_node do |node|
-  puts "Node data = #{node.data}"
-end
-
-tail = list.pop
-puts tail.inspect
-
-
