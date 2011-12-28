@@ -27,7 +27,7 @@ end
 # However, these methods aren't very efficient since they must loop
 # over the entire array element-by-element. In other words, searching
 # the array requires O(N) operations. For an array of 100k elements,
-# this is 100k operations.
+# this is ~100k operations.
 #
 # A more optimal solution uses a BST with the same values, which allows
 # the collection to be searched quite rapidly. The reason is that the
