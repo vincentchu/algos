@@ -1,5 +1,7 @@
 class BinaryTree
 
+  include Enumerable
+
   attr_reader :root
 
   def initialize(value = nil)
@@ -46,6 +48,10 @@ class BinaryTree
 
   def inspect
     %Q[#<BinaryTree:0x#{'%x' % (self.object_id << 1)}>]
+  end
+
+  def each(&block)
+    nodes_inorder(&block)
   end
 
   private
@@ -120,4 +126,6 @@ class BinaryTree
     end
   end
 end
+
+
 
