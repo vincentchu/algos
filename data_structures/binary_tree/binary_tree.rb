@@ -62,6 +62,12 @@ class BinaryTree
     @nodes = nil
   end
 
+  def is_balanced?
+    min_dist, max_dist = find_max_min_depth(self.root, 0, (1.0/0.0), -1)
+
+    return ((max_dist - min_dist) <= 1)
+  end
+
   def inspect
     %Q[#<BinaryTree:0x#{'%x' % (self.object_id << 1)}>]
   end
@@ -71,6 +77,18 @@ class BinaryTree
   end
 
   private
+
+  def find_max_min_depth(node, curr_depth, min_dist, max_dist)
+    if node.is_leaf?
+      max_dist = [max_dist, curr_depth].max
+      min_dist = [min_dist, curr_depth].min
+    else
+      min_dist, max_dist = recurse_through_tree(node.left_child,  curr_depth+1, min_dist, max_dist) if node.has_left_child?
+      min_dist, max_dist = recurse_through_tree(node.right_child, curr_depth+1, min_dist, max_dist) if node.has_right_child?
+    end
+
+    [min_dist, max_dist]
+  end
 
   def iterate_breadthfirst(node, &block)
 

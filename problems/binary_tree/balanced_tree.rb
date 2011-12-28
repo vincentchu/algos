@@ -45,7 +45,7 @@ tree = BinaryTree.new(2)
 tree.root.add_left_child(1)
 tree.root.add_right_child(3)
 
-p is_tree_balanced?( tree )
+is_tree_balanced?( tree )
 # => true
 
 # Test Case 3: An unbalanced tree
