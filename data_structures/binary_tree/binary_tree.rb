@@ -1,3 +1,19 @@
+# BinaryTree
+#
+# Implementation of a BinaryTree in ruby. This is a basic class
+# from which other, more complicated classes may be constructed
+# (e.g., BinarySearchTrees). The class contains a class that
+# represents a node in the binary tree (BinaryTree::Node). This
+# class has instance methods for choosing left and right children,
+# adding left or right children, etc.. The BinaryTree::Node class
+# also implements the comparable method <=> allowing the values
+# between nodes to be compared
+#
+# The BinaryTree class contains methods traversing the tree
+# recursively in different orders (depth-first and breadth-first
+# traversals). It also implements an :each method using inorder
+# traversal of the nodes which allows the inclusion of the
+# Enumerable module.
 class BinaryTree
 
   include Enumerable
@@ -105,6 +121,10 @@ class BinaryTree
 
     def right_child
       rchild
+    end
+
+    def is_leaf?
+      (left_child.nil? && right_child.nil?)
     end
 
     def inspect
