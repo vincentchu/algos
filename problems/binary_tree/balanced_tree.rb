@@ -1,11 +1,12 @@
+require "../../data_structures/binary_tree/binary_tree"
+
 # Is a given tree balanced?
 #
 # Implement a function to check if a tree is balanced For the
 # purposes of this question, a balanced tree is defined to be a
 # tree such that no two leaf nodes differ in distance from the
 # root by more than one.
-require "../../data_structures/binary_tree/binary_tree"
-
+#
 # Solution: Use recursion to traverse down the leaves of the tree,
 # keeping track of the current depth and the maximum and minimum
 # leaf depth. Whn you hit a leaf (the termination of the recursion),
