@@ -27,7 +27,7 @@ end
 # However, these methods aren't very efficient since they must loop
 # over the entire array element-by-element. In other words, searching
 # the array requires O(N) operations. For an array of 100k elements,
-# this is ~100k operations.
+# this is ~100k operations
 #
 # A more optimal solution uses a BST with the same values, which allows
 # the collection to be searched quite rapidly. The reason is that the
@@ -44,9 +44,23 @@ end
 # (1000x improvement!)
 
 search = rand                           # A random number to search for
-arr    = 100_000.times.collect { rand } # Array of 100k random numbers
+arr    = 1_000.times.collect { rand } # Array of 100k random numbers
 bst    = BinarySearchTree.new           # The same random numbers in a BST
 arr.each {|n| bst.add(n)}
+
+node = bst.find(arr.first)
+
+puts "TO DEL: #{node.inspect}"
+nn = bst.delete(node)
+puts "#{nn.value} - #{nn.lchild} - #{nn.rchild} -"
+puts "NEW ROOT = #{bst.root.inspect} #{arr[1]} #{arr[2]}"
+
+
+
+
+
+
+
 
 time_run("Array") {
   100.times {

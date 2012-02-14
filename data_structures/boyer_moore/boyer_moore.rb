@@ -132,7 +132,7 @@ LOREM_TEXT = %Q[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 
 searcher = BoyerMoore.new(:text => LOREM_TEXT)
 
-%w(Lorem aliqua ad minim).each do |pattern|
+%w(Lorem ipsum ad minim).each do |pattern|
   searcher.search(pattern)
   puts "Matches for '#{pattern}':"
   searcher.print_matches

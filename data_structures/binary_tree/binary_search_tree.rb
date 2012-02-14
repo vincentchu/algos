@@ -31,6 +31,43 @@ class BinarySearchTree < BinaryTree
     end
   end
 
+  def find( value, node = self.root )
+    puts node.nil? ? "nil" : node.value
+    return nil if node.nil?
+
+    if (value == node.value)
+      node
+
+    elsif (value <= node.value)
+      find(value, node.left_child)
+
+    else
+      find(value, node.right_child)
+    end
+  end
+
+  def delete(node)
+    if node.is_leaf?
+      if node.parent
+        if (node.parent.lchild == node)
+          node.parent.lchild = nil
+        else
+          node.parent.rchild = nil
+        end
+      else
+        @root = nil
+      end
+
+      node.parent = nil
+      return node
+    end
+
+    side = node.has_left_child? ? :lchild : :rchild
+
+    node.value = node.send(side).value
+    delete( node.send(side) )
+  end
+
   def contains?( value, node = self.root )
     return false if node.nil?
     return true  if (node.value == value)
@@ -46,7 +83,6 @@ class BinarySearchTree < BinaryTree
   def inspect
     %Q[#<BinarySearchTree:0x#{'%x' % (self.object_id << 1)}>]
   end
-
 end
 
 
